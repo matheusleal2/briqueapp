@@ -36,14 +36,14 @@ export default function SalesPage() {
   const totalVendas = sales.filter(s => s.status === 'concluida').reduce((a, s) => a + s.total_venda, 0)
   const totalLucro = sales.filter(s => s.status === 'concluida').reduce((a, s) => a + s.lucro_gerado, 0)
 
-  if (loading) return <div style={{ display: 'flex', justifyContent: 'center', padding: '4rem' }}><div style={{ width: '2.5rem', height: '2.5rem', border: '3px solid #1E293B', borderTopColor: '#6366F1', borderRadius: '50%', animation: 'spin 0.8s linear infinite' }} /><style>{`@keyframes spin{to{transform:rotate(360deg)}}`}</style></div>
+  if (loading) return <div style={{ display: 'flex', justifyContent: 'center', padding: '4rem' }}><div style={{ width: '2.5rem', height: '2.5rem', border: '3px solid #161B26', borderTopColor: '#A78BFA', borderRadius: '50%', animation: 'spin 0.8s linear infinite' }} /><style>{`@keyframes spin{to{transform:rotate(360deg)}}`}</style></div>
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
       {/* Summary */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '1rem' }}>
         {[
-          { label: 'Total vendido', value: formatCurrency(totalVendas), color: '#6366F1' },
+          { label: 'Total vendido', value: formatCurrency(totalVendas), color: '#A78BFA' },
           { label: 'Lucro total', value: formatCurrency(totalLucro), color: '#10B981' },
           { label: 'Nº de vendas', value: String(sales.filter(s => s.status === 'concluida').length), color: '#3B82F6' },
         ].map((s, i) => (
@@ -66,7 +66,7 @@ export default function SalesPage() {
       {/* Sales list */}
       {filtered.length === 0 ? (
         <div style={{ textAlign: 'center', padding: '4rem 2rem' }}>
-          <ShoppingCart size={48} style={{ margin: '0 auto 1rem', color: '#334155' }} />
+          <ShoppingCart size={48} style={{ margin: '0 auto 1rem', color: '#1F2937' }} />
           <p style={{ color: '#94A3B8', marginBottom: '1rem' }}>Nenhuma venda registrada</p>
           <Link href="/sales/new" className="btn-primary">Registrar venda</Link>
         </div>
@@ -74,7 +74,7 @@ export default function SalesPage() {
         <div className="glass" style={{ borderRadius: '1rem', overflow: 'hidden' }}>
           <table style={{ width: '100%', borderCollapse: 'collapse' }}>
             <thead>
-              <tr style={{ borderBottom: '1px solid #1E293B' }}>
+              <tr style={{ borderBottom: '1px solid #161B26' }}>
                 {['Data', 'Vendedor', 'Produtos', 'Total', 'Lucro', 'Margem', 'Status'].map(h => (
                   <th key={h} style={{ padding: '0.875rem 1rem', textAlign: 'left', fontSize: '0.72rem', fontWeight: 600, color: '#64748B', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{h}</th>
                 ))}
@@ -82,7 +82,7 @@ export default function SalesPage() {
             </thead>
             <tbody>
               {filtered.map(s => (
-                <tr key={s.id} style={{ borderBottom: '1px solid #0F172A', cursor: 'pointer', transition: 'background 0.15s' }}>
+                <tr key={s.id} style={{ borderBottom: '1px solid #0B0F19', cursor: 'pointer', transition: 'background 0.15s' }}>
                   <td style={{ padding: '0.875rem 1rem', color: '#94A3B8', fontSize: '0.8rem', whiteSpace: 'nowrap' }}>{formatDate(s.data_venda)}</td>
                   <td style={{ padding: '0.875rem 1rem' }}>
                     <p style={{ color: '#F1F5F9', fontWeight: 600, fontSize: '0.875rem' }}>{(s as any).profiles?.nome} {(s as any).profiles?.sobrenome}</p>

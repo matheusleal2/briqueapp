@@ -44,7 +44,7 @@ export default function ProfileSettingsPage() {
     <div style={{ maxWidth: '500px' }}>
       <div className="glass" style={{ borderRadius: '1rem', padding: '1.75rem' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.875rem', marginBottom: '1.75rem' }}>
-          <div style={{ width: '3rem', height: '3rem', borderRadius: '50%', background: 'linear-gradient(135deg, #6366F1, #10B981)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <div style={{ width: '3rem', height: '3rem', borderRadius: '50%', background: 'linear-gradient(135deg, #A78BFA, #10B981)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <User size={20} color="white" />
           </div>
           <div>

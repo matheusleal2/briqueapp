@@ -48,7 +48,7 @@ export default function ProductsPage() {
 
   if (loading) return (
     <div style={{ display: 'flex', justifyContent: 'center', padding: '4rem' }}>
-      <div style={{ width: '2.5rem', height: '2.5rem', border: '3px solid #1E293B', borderTopColor: '#6366F1', borderRadius: '50%', animation: 'spin 0.8s linear infinite' }} />
+      <div style={{ width: '2.5rem', height: '2.5rem', border: '3px solid #161B26', borderTopColor: '#A78BFA', borderRadius: '50%', animation: 'spin 0.8s linear infinite' }} />
       <style>{`@keyframes spin { to { transform: rotate(360deg) } }`}</style>
     </div>
   )
@@ -69,9 +69,9 @@ export default function ProductsPage() {
           <option value="baixo_estoque">Baixo estoque</option>
         </select>
 
-        <div style={{ display: 'flex', background: '#1E293B', borderRadius: '0.75rem', padding: '0.25rem', gap: '0.25rem' }}>
+        <div style={{ display: 'flex', background: '#161B26', borderRadius: '0.75rem', padding: '0.25rem', gap: '0.25rem' }}>
           {(['grid', 'list'] as const).map((v) => (
-            <button key={v} onClick={() => setView(v)} style={{ padding: '0.35rem 0.625rem', borderRadius: '0.5rem', background: view === v ? '#334155' : 'transparent', border: 'none', color: view === v ? '#F1F5F9' : '#64748B', cursor: 'pointer', display: 'flex', transition: 'all 0.15s' }}>
+            <button key={v} onClick={() => setView(v)} style={{ padding: '0.35rem 0.625rem', borderRadius: '0.5rem', background: view === v ? '#1F2937' : 'transparent', border: 'none', color: view === v ? '#F1F5F9' : '#64748B', cursor: 'pointer', display: 'flex', transition: 'all 0.15s' }}>
               {v === 'grid' ? <Grid3X3 size={15} /> : <List size={15} />}
             </button>
           ))}
@@ -85,11 +85,11 @@ export default function ProductsPage() {
       {/* Stats bar */}
       <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
         {[
-          { label: 'Total de produtos', value: products.length, color: '#6366F1' },
+          { label: 'Total de produtos', value: products.length, color: '#A78BFA' },
           { label: 'Ativos', value: products.filter(p => p.status === 'ativo').length, color: '#10B981' },
           { label: 'Estoque baixo', value: products.filter(p => (p.quantidade_estoque ?? 0) < p.estoque_minimo).length, color: '#F59E0B' },
         ].map((s, i) => (
-          <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.5rem 0.875rem', background: 'rgba(30,41,59,0.6)', borderRadius: '0.625rem', border: '1px solid #1E293B' }}>
+          <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', padding: '0.5rem 0.875rem', background: 'rgba(30,41,59,0.6)', borderRadius: '0.625rem', border: '1px solid #161B26' }}>
             <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: s.color }} />
             <span style={{ fontSize: '0.78rem', color: '#94A3B8' }}>{s.label}:</span>
             <span style={{ fontSize: '0.78rem', fontWeight: 700, color: '#F1F5F9' }}>{s.value}</span>
@@ -100,7 +100,7 @@ export default function ProductsPage() {
       {/* Products */}
       {filtered.length === 0 ? (
         <div style={{ textAlign: 'center', padding: '4rem 2rem' }}>
-          <Package size={48} style={{ margin: '0 auto 1rem', color: '#334155' }} />
+          <Package size={48} style={{ margin: '0 auto 1rem', color: '#1F2937' }} />
           <p style={{ color: '#94A3B8', marginBottom: '1rem' }}>Nenhum produto encontrado</p>
           <Link href="/products/new" className="btn-primary">Cadastrar produto</Link>
         </div>
@@ -112,7 +112,7 @@ export default function ProductsPage() {
         <div className="glass" style={{ borderRadius: '1rem', overflow: 'hidden' }}>
           <table style={{ width: '100%', borderCollapse: 'collapse' }}>
             <thead>
-              <tr style={{ borderBottom: '1px solid #1E293B' }}>
+              <tr style={{ borderBottom: '1px solid #161B26' }}>
                 {['Produto', 'SKU', 'Preço Custo', 'Preço Venda', 'Margem', 'Estoque', 'Status', 'Ações'].map((h) => (
                   <th key={h} style={{ padding: '0.875rem 1rem', textAlign: 'left', fontSize: '0.75rem', fontWeight: 600, color: '#64748B', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{h}</th>
                 ))}
@@ -120,7 +120,7 @@ export default function ProductsPage() {
             </thead>
             <tbody>
               {filtered.map((p) => (
-                <tr key={p.id} style={{ borderBottom: '1px solid #0F172A', transition: 'background 0.15s' }}>
+                <tr key={p.id} style={{ borderBottom: '1px solid #0B0F19', transition: 'background 0.15s' }}>
                   <td style={{ padding: '0.875rem 1rem' }}>
                     <p style={{ fontWeight: 600, color: '#F1F5F9', fontSize: '0.875rem' }}>{p.nome}</p>
                     <p style={{ color: '#64748B', fontSize: '0.75rem' }}>{(p as any).categories?.nome ?? '—'}</p>
@@ -162,12 +162,12 @@ function ProductCard({ product: p, onToggle }: { product: Product; onToggle: (p:
   return (
     <div className="glass card-hover" style={{ borderRadius: '1rem', overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
       {/* Photo */}
-      <div style={{ height: '160px', background: '#1E293B', position: 'relative', overflow: 'hidden' }}>
+      <div style={{ height: '160px', background: '#161B26', position: 'relative', overflow: 'hidden' }}>
         {p.foto_principal ? (
           <img src={p.foto_principal} alt={p.nome} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
         ) : (
           <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <Package size={40} color="#334155" />
+            <Package size={40} color="#1F2937" />
           </div>
         )}
         {lowStock && (

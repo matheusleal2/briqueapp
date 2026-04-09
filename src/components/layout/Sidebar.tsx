@@ -45,11 +45,11 @@ export function Sidebar({ onClose }: SidebarProps) {
   }
 
   return (
-    <aside style={{ width: '240px', minHeight: '100vh', background: 'rgba(15,23,42,0.95)', borderRight: '1px solid #1E293B', display: 'flex', flexDirection: 'column', padding: '1.25rem 0', flexShrink: 0 }}>
+    <aside style={{ width: '240px', minHeight: '100vh', background: 'rgba(11, 15, 25, 0.95)', borderRight: '1px solid #1F2937', display: 'flex', flexDirection: 'column', padding: '1.25rem 0', flexShrink: 0 }}>
       {/* Logo */}
       <div style={{ padding: '0 1.25rem', marginBottom: '2rem', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.625rem' }}>
-          <div style={{ width: '2.25rem', height: '2.25rem', background: 'linear-gradient(135deg, #6366F1, #4F46E5)', borderRadius: '0.625rem', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 4px 12px rgba(99,102,241,0.4)' }}>
+          <div style={{ width: '2.25rem', height: '2.25rem', background: 'linear-gradient(135deg, #A78BFA, #818CF8)', borderRadius: '0.625rem', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 4px 12px rgba(167, 139, 250, 0.3)' }}>
             <Package2 size={18} color="white" />
           </div>
           <span style={{ fontWeight: 800, fontSize: '1.125rem', color: '#F1F5F9' }}>Brique</span>
@@ -68,22 +68,22 @@ export function Sidebar({ onClose }: SidebarProps) {
         {navItems.map(({ href, icon: Icon, label }) => {
           const active = isActive(href)
           return (
-            <Link key={href} href={href} onClick={onClose} style={{ display: 'flex', alignItems: 'center', gap: '0.625rem', padding: '0.625rem 0.75rem', borderRadius: '0.625rem', textDecoration: 'none', fontSize: '0.875rem', fontWeight: active ? 600 : 400, color: active ? '#F1F5F9' : '#94A3B8', background: active ? 'rgba(99,102,241,0.15)' : 'transparent', transition: 'all 0.15s', position: 'relative' }}>
-              <Icon size={17} color={active ? '#818CF8' : '#64748B'} />
+            <Link key={href} href={href} onClick={onClose} style={{ display: 'flex', alignItems: 'center', gap: '0.625rem', padding: '0.625rem 0.75rem', borderRadius: '0.625rem', textDecoration: 'none', fontSize: '0.875rem', fontWeight: active ? 600 : 400, color: active ? '#F1F5F9' : '#94A3B8', background: active ? 'rgba(167, 139, 250, 0.15)' : 'transparent', transition: 'all 0.15s', position: 'relative' }}>
+              <Icon size={17} color={active ? '#A78BFA' : '#64748B'} />
               {label}
-              {active && <div style={{ position: 'absolute', right: '0.75rem', top: '50%', transform: 'translateY(-50%)' }}><ChevronRight size={14} color="#818CF8" /></div>}
+              {active && <div style={{ position: 'absolute', right: '0.75rem', top: '50%', transform: 'translateY(-50%)' }}><ChevronRight size={14} color="#A78BFA" /></div>}
             </Link>
           )
         })}
 
-        <div style={{ height: '1px', background: '#1E293B', margin: '1rem 0' }} />
+        <div style={{ height: '1px', background: '#161B26', margin: '1rem 0' }} />
         <p style={{ fontSize: '0.625rem', fontWeight: 700, color: '#475569', textTransform: 'uppercase', letterSpacing: '0.08em', padding: '0 0.5rem', marginBottom: '0.5rem' }}>Conta</p>
 
         {settingsItems.map(({ href, icon: Icon, label }) => {
           const active = isActive(href)
           return (
-            <Link key={href} href={href} onClick={onClose} style={{ display: 'flex', alignItems: 'center', gap: '0.625rem', padding: '0.625rem 0.75rem', borderRadius: '0.625rem', textDecoration: 'none', fontSize: '0.875rem', fontWeight: active ? 600 : 400, color: active ? '#F1F5F9' : '#94A3B8', background: active ? 'rgba(99,102,241,0.15)' : 'transparent', transition: 'all 0.15s' }}>
-              <Icon size={17} color={active ? '#818CF8' : '#64748B'} />
+            <Link key={href} href={href} onClick={onClose} style={{ display: 'flex', alignItems: 'center', gap: '0.625rem', padding: '0.625rem 0.75rem', borderRadius: '0.625rem', textDecoration: 'none', fontSize: '0.875rem', fontWeight: active ? 600 : 400, color: active ? '#F1F5F9' : '#94A3B8', background: active ? 'rgba(167, 139, 250, 0.15)' : 'transparent', transition: 'all 0.15s' }}>
+              <Icon size={17} color={active ? '#A78BFA' : '#64748B'} />
               {label}
             </Link>
           )

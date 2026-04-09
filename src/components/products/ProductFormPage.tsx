@@ -100,7 +100,7 @@ export default function ProductFormPage({ isEdit }: ProductFormPageProps) {
     setPhotos((prev) => [...prev, ...files].slice(0, 5))
   }
 
-  if (loading) return <div style={{ display: 'flex', justifyContent: 'center', padding: '4rem' }}><div style={{ width: '2.5rem', height: '2.5rem', border: '3px solid #1E293B', borderTopColor: '#6366F1', borderRadius: '50%', animation: 'spin 0.8s linear infinite' }} /><style>{`@keyframes spin { to { transform: rotate(360deg) } }`}</style></div>
+  if (loading) return <div style={{ display: 'flex', justifyContent: 'center', padding: '4rem' }}><div style={{ width: '2.5rem', height: '2.5rem', border: '3px solid #161B26', borderTopColor: '#A78BFA', borderRadius: '50%', animation: 'spin 0.8s linear infinite' }} /><style>{`@keyframes spin { to { transform: rotate(360deg) } }`}</style></div>
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem', maxWidth: '800px' }}>
@@ -120,7 +120,7 @@ export default function ProductFormPage({ isEdit }: ProductFormPageProps) {
             <label style={{ display: 'block', fontSize: '0.75rem', fontWeight: 600, color: '#94A3B8', marginBottom: '0.4rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>SKU *</label>
             <div style={{ display: 'flex', gap: '0.5rem' }}>
               <input {...register('sku')} placeholder="EX: TIJCR-001" className="input-base" />
-              <button type="button" onClick={() => setValue('sku', generateSKU(watch('nome') || 'PRD'))} style={{ padding: '0.625rem', background: '#1E293B', border: '1px solid #334155', borderRadius: '0.75rem', color: '#94A3B8', cursor: 'pointer', display: 'flex', flexShrink: 0 }}>
+              <button type="button" onClick={() => setValue('sku', generateSKU(watch('nome') || 'PRD'))} style={{ padding: '0.625rem', background: '#161B26', border: '1px solid #1F2937', borderRadius: '0.75rem', color: '#94A3B8', cursor: 'pointer', display: 'flex', flexShrink: 0 }}>
                 <RefreshCw size={15} />
               </button>
             </div>
@@ -191,7 +191,7 @@ export default function ProductFormPage({ isEdit }: ProductFormPageProps) {
       {/* Photos */}
       <div className="glass" style={{ borderRadius: '1rem', padding: '1.5rem' }}>
         <h3 style={{ fontSize: '1rem', fontWeight: 700, color: '#F1F5F9', marginBottom: '1rem' }}>Fotos</h3>
-        <label style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', padding: '2rem', border: '2px dashed #334155', borderRadius: '0.75rem', cursor: 'pointer', transition: 'border-color 0.2s' }}>
+        <label style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', padding: '2rem', border: '2px dashed #1F2937', borderRadius: '0.75rem', cursor: 'pointer', transition: 'border-color 0.2s' }}>
           <Upload size={24} color="#64748B" />
           <p style={{ color: '#94A3B8', fontSize: '0.875rem' }}>Arraste ou clique para adicionar fotos</p>
           <p style={{ color: '#64748B', fontSize: '0.75rem' }}>JPG, PNG, WebP — Máx. 5MB cada</p>
@@ -201,12 +201,12 @@ export default function ProductFormPage({ isEdit }: ProductFormPageProps) {
         {(photos.length > 0 || existingPhotos.length > 0) && (
           <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap', marginTop: '1rem' }}>
             {existingPhotos.map((url, i) => (
-              <div key={i} style={{ width: '80px', height: '80px', borderRadius: '0.75rem', overflow: 'hidden', position: 'relative', border: '2px solid #334155' }}>
+              <div key={i} style={{ width: '80px', height: '80px', borderRadius: '0.75rem', overflow: 'hidden', position: 'relative', border: '2px solid #1F2937' }}>
                 <img src={url} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               </div>
             ))}
             {photos.map((file, i) => (
-              <div key={i} style={{ width: '80px', height: '80px', borderRadius: '0.75rem', overflow: 'hidden', position: 'relative', border: '2px solid #6366F1' }}>
+              <div key={i} style={{ width: '80px', height: '80px', borderRadius: '0.75rem', overflow: 'hidden', position: 'relative', border: '2px solid #A78BFA' }}>
                 <img src={URL.createObjectURL(file)} alt="" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 <button type="button" onClick={() => setPhotos((prev) => prev.filter((_, j) => j !== i))} style={{ position: 'absolute', top: '2px', right: '2px', background: 'rgba(0,0,0,0.7)', border: 'none', borderRadius: '50%', width: '20px', height: '20px', display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer', color: 'white' }}>
                   <X size={10} />

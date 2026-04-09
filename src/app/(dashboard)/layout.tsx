@@ -21,7 +21,7 @@ export default async function DashboardLayout({ children }: { children: React.Re
   const pageInfo = Object.entries(pageTitles).find(([key]) => pathname.startsWith(key))?.[1] ?? { title: 'Brique' }
 
   return (
-    <div style={{ display: 'flex', minHeight: '100vh', background: '#0F172A' }}>
+    <div className="bg-background text-foreground" style={{ display: 'flex', minHeight: '100vh' }}>
       {/* Desktop Sidebar */}
       <div className="desktop-sidebar">
         <Sidebar />

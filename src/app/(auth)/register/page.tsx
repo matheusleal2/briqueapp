@@ -40,11 +40,11 @@ export default function RegisterPage() {
   }
 
   return (
-    <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '1.5rem', background: 'radial-gradient(ellipse at top right, rgba(16,185,129,0.12) 0%, transparent 50%), #0F172A' }}>
+    <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '1.5rem', background: 'radial-gradient(ellipse at top right, rgba(16,185,129,0.12) 0%, transparent 50%), #0B0F19' }}>
       <div style={{ width: '100%', maxWidth: '480px' }}>
         {/* Logo */}
         <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
-          <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '3.5rem', height: '3.5rem', background: 'linear-gradient(135deg, #6366F1, #4F46E5)', borderRadius: '1rem', marginBottom: '1rem', boxShadow: '0 8px 24px rgba(99,102,241,0.4)' }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '3.5rem', height: '3.5rem', background: 'linear-gradient(135deg, #A78BFA, #818CF8)', borderRadius: '1rem', marginBottom: '1rem', boxShadow: '0 8px 24px rgba(99,102,241,0.4)' }}>
             <Package2 size={28} color="white" />
           </div>
           <h1 style={{ fontSize: '1.75rem', fontWeight: 800, color: '#F1F5F9' }}>Brique</h1>

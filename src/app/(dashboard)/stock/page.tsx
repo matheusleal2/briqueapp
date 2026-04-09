@@ -60,14 +60,14 @@ export default function StockPage() {
   const totalValue = products.reduce((s, p) => s + (p.quantidade_estoque ?? 0) * p.preco_custo, 0)
   const totalSaleValue = products.reduce((s, p) => s + (p.quantidade_estoque ?? 0) * p.preco_venda, 0)
 
-  if (loading) return <div style={{ display: 'flex', justifyContent: 'center', padding: '4rem' }}><div style={{ width: '2.5rem', height: '2.5rem', border: '3px solid #1E293B', borderTopColor: '#6366F1', borderRadius: '50%', animation: 'spin 0.8s linear infinite' }} /><style>{`@keyframes spin{to{transform:rotate(360deg)}}`}</style></div>
+  if (loading) return <div style={{ display: 'flex', justifyContent: 'center', padding: '4rem' }}><div style={{ width: '2.5rem', height: '2.5rem', border: '3px solid #161B26', borderTopColor: '#A78BFA', borderRadius: '50%', animation: 'spin 0.8s linear infinite' }} /><style>{`@keyframes spin{to{transform:rotate(360deg)}}`}</style></div>
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
       {/* Summary cards */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem' }}>
         {[
-          { label: 'Valor em estoque (custo)', value: formatCurrency(totalValue), color: '#6366F1', bg: 'rgba(99,102,241,0.12)' },
+          { label: 'Valor em estoque (custo)', value: formatCurrency(totalValue), color: '#A78BFA', bg: 'rgba(99,102,241,0.12)' },
           { label: 'Valor potencial (venda)', value: formatCurrency(totalSaleValue), color: '#10B981', bg: 'rgba(16,185,129,0.12)' },
           { label: 'Produtos com baixo estoque', value: String(lowStock.length), color: '#F59E0B', bg: 'rgba(245,158,11,0.12)' },
           { label: 'Total de produtos ativos', value: String(products.length), color: '#3B82F6', bg: 'rgba(59,130,246,0.12)' },
@@ -91,9 +91,9 @@ export default function StockPage() {
       )}
 
       {/* Tabs */}
-      <div style={{ display: 'flex', gap: '0.25rem', background: '#1E293B', borderRadius: '0.875rem', padding: '0.3rem', width: 'fit-content' }}>
+      <div style={{ display: 'flex', gap: '0.25rem', background: '#161B26', borderRadius: '0.875rem', padding: '0.3rem', width: 'fit-content' }}>
         {(['overview', 'movements'] as const).map((t) => (
-          <button key={t} onClick={() => setTab(t)} style={{ padding: '0.5rem 1.25rem', borderRadius: '0.625rem', background: tab === t ? '#334155' : 'transparent', border: 'none', color: tab === t ? '#F1F5F9' : '#94A3B8', cursor: 'pointer', fontSize: '0.875rem', fontWeight: tab === t ? 600 : 400, transition: 'all 0.15s' }}>
+          <button key={t} onClick={() => setTab(t)} style={{ padding: '0.5rem 1.25rem', borderRadius: '0.625rem', background: tab === t ? '#1F2937' : 'transparent', border: 'none', color: tab === t ? '#F1F5F9' : '#94A3B8', cursor: 'pointer', fontSize: '0.875rem', fontWeight: tab === t ? 600 : 400, transition: 'all 0.15s' }}>
             {t === 'overview' ? 'Visão Geral' : 'Movimentações'}
           </button>
         ))}
@@ -104,7 +104,7 @@ export default function StockPage() {
         <div className="glass" style={{ borderRadius: '1rem', overflow: 'hidden' }}>
           <table style={{ width: '100%', borderCollapse: 'collapse' }}>
             <thead>
-              <tr style={{ borderBottom: '1px solid #1E293B' }}>
+              <tr style={{ borderBottom: '1px solid #161B26' }}>
                 {['Produto', 'Categoria', 'Qtd. Estoque', 'Mín.', 'Valor (custo)', 'Valor (venda)', 'Ações'].map(h => (
                   <th key={h} style={{ padding: '0.875rem 1rem', textAlign: 'left', fontSize: '0.72rem', fontWeight: 600, color: '#64748B', textTransform: 'uppercase', letterSpacing: '0.05em', whiteSpace: 'nowrap' }}>{h}</th>
                 ))}
@@ -114,7 +114,7 @@ export default function StockPage() {
               {products.map(p => {
                 const low = (p.quantidade_estoque ?? 0) < p.estoque_minimo
                 return (
-                  <tr key={p.id} style={{ borderBottom: '1px solid #0F172A' }}>
+                  <tr key={p.id} style={{ borderBottom: '1px solid #0B0F19' }}>
                     <td style={{ padding: '0.875rem 1rem' }}>
                       <p style={{ fontWeight: 600, color: '#F1F5F9', fontSize: '0.875rem' }}>{p.nome}</p>
                       <p style={{ color: '#64748B', fontSize: '0.72rem' }}>{p.sku}</p>
@@ -149,7 +149,7 @@ export default function StockPage() {
         <div className="glass" style={{ borderRadius: '1rem', overflow: 'hidden' }}>
           <table style={{ width: '100%', borderCollapse: 'collapse' }}>
             <thead>
-              <tr style={{ borderBottom: '1px solid #1E293B' }}>
+              <tr style={{ borderBottom: '1px solid #161B26' }}>
                 {['Data', 'Produto', 'Tipo', 'Quantidade', 'Motivo', 'Responsável'].map(h => (
                   <th key={h} style={{ padding: '0.875rem 1rem', textAlign: 'left', fontSize: '0.72rem', fontWeight: 600, color: '#64748B', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{h}</th>
                 ))}
@@ -157,7 +157,7 @@ export default function StockPage() {
             </thead>
             <tbody>
               {movements.map(m => (
-                <tr key={m.id} style={{ borderBottom: '1px solid #0F172A' }}>
+                <tr key={m.id} style={{ borderBottom: '1px solid #0B0F19' }}>
                   <td style={{ padding: '0.875rem 1rem', color: '#94A3B8', fontSize: '0.8rem', whiteSpace: 'nowrap' }}>{formatDateTime(m.criado_em)}</td>
                   <td style={{ padding: '0.875rem 1rem' }}>
                     <p style={{ color: '#F1F5F9', fontSize: '0.875rem', fontWeight: 600 }}>{(m as any).products?.nome}</p>

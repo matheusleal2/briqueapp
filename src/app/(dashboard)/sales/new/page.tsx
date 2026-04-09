@@ -128,14 +128,14 @@ export default function NewSalePage() {
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', maxHeight: '280px', overflowY: 'auto' }}>
             {filtered.slice(0, 20).map(p => (
-              <button key={p.id} onClick={() => addToCart(p)} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0.75rem 1rem', background: 'rgba(15,23,42,0.5)', borderRadius: '0.75rem', border: '1px solid #1E293B', cursor: 'pointer', width: '100%', textAlign: 'left', transition: 'all 0.15s' }}>
+              <button key={p.id} onClick={() => addToCart(p)} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0.75rem 1rem', background: 'rgba(15,23,42,0.5)', borderRadius: '0.75rem', border: '1px solid #161B26', cursor: 'pointer', width: '100%', textAlign: 'left', transition: 'all 0.15s' }}>
                 <div>
                   <p style={{ color: '#F1F5F9', fontWeight: 600, fontSize: '0.875rem' }}>{p.nome}</p>
                   <p style={{ color: '#64748B', fontSize: '0.75rem' }}>{p.sku} · Estoque: {p.quantidade_estoque}</p>
                 </div>
                 <div style={{ textAlign: 'right', flexShrink: 0, marginLeft: '1rem' }}>
                   <p style={{ color: '#34D399', fontWeight: 700, fontSize: '0.875rem' }}>{formatCurrency(p.preco_venda)}</p>
-                  <Plus size={14} color="#6366F1" style={{ marginLeft: 'auto' }} />
+                  <Plus size={14} color="#A78BFA" style={{ marginLeft: 'auto' }} />
                 </div>
               </button>
             ))}
@@ -149,7 +149,7 @@ export default function NewSalePage() {
             <h3 style={{ fontSize: '1rem', fontWeight: 700, color: '#F1F5F9', marginBottom: '1rem' }}>Itens no Carrinho</h3>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
               {cart.map((item, idx) => (
-                <div key={item.product.id} style={{ display: 'grid', gridTemplateColumns: '1fr 80px 80px auto', gap: '0.75rem', alignItems: 'center', padding: '0.875rem', background: 'rgba(15,23,42,0.5)', borderRadius: '0.75rem', border: '1px solid #1E293B' }}>
+                <div key={item.product.id} style={{ display: 'grid', gridTemplateColumns: '1fr 80px 80px auto', gap: '0.75rem', alignItems: 'center', padding: '0.875rem', background: 'rgba(15,23,42,0.5)', borderRadius: '0.75rem', border: '1px solid #161B26' }}>
                   <div>
                     <p style={{ color: '#F1F5F9', fontWeight: 600, fontSize: '0.875rem' }}>{item.product.nome}</p>
                     <p style={{ color: '#64748B', fontSize: '0.72rem' }}>{formatCurrency(item.product.preco_venda)} / {item.product.unidade_medida}</p>
@@ -186,7 +186,7 @@ export default function NewSalePage() {
               { label: 'Lucro bruto', value: `+${formatCurrency(totalProfit)}`, color: '#34D399' },
               { label: 'Margem', value: `${margin.toFixed(1)}%`, color: margin >= 20 ? '#34D399' : margin >= 10 ? '#FCD34D' : '#FCA5A5' },
             ].map((r, i) => (
-              <div key={i} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0.5rem 0', borderBottom: i < 3 ? '1px solid #1E293B' : 'none' }}>
+              <div key={i} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '0.5rem 0', borderBottom: i < 3 ? '1px solid #161B26' : 'none' }}>
                 <span style={{ fontSize: '0.8rem', color: r.sub ? '#64748B' : '#94A3B8' }}>{r.label}</span>
                 <span style={{ fontSize: r.label === 'Subtotal' ? '1.1rem' : '0.875rem', fontWeight: 700, color: r.color ?? '#F1F5F9' }}>{r.value}</span>
               </div>

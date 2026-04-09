@@ -9,16 +9,16 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: '#0F172A',
-        card: '#1E293B',
-        border: '#334155',
+        background: '#0B0F19',
+        card: '#161B26',
+        border: '#1F2937',
         primary: {
-          DEFAULT: '#6366F1',
-          hover: '#4F46E5',
+          DEFAULT: '#9984FC',
+          hover: '#A78BFA',
           foreground: '#FFFFFF',
         },
         accent: {
-          DEFAULT: '#10B981',
+          DEFAULT: '#F97316',
           foreground: '#FFFFFF',
         },
         muted: {
